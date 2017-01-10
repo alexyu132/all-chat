@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" style="height:100%">
 
 	<head>
 		<title>All-Chat</title>
 		<meta charset="utf-8">
 	</head>
 
-	<body style="background-color:gainsboro; overflow:hidden">
-		<canvas id="chatDisplay" width="100%" height="100%" style="overflow:hidden"></canvas>
+	<body style="background-color:gainsboro; height:100%; overflow:hidden">
 		<script src="socket.io/socket.io.js"></script>
 		<script src="app.js"></script>
 		<script>
 			init();
 		</script>
+		<br>
+		Users Online: <span id="users" style="height:10%">0</span><br>
+		<div id="messages" style="overflow-y: scroll; height:85%; width:100%"></div>
+		<div style="height:7%">
+			<input type="text" id="input" name="input" onkeydown="if (event.keyCode == 13) { send(); return false; }" style="width:90%; float:left;">
+			<button id="send" type="button" onclick="send()" style="width:7%; float:left">Send</button>
+		<div>
+
 	</body>
 </html>

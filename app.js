@@ -21,15 +21,15 @@ function init() {
 function setListeners() {
   socket.on("connection", function(client) {
     numUsers++;
-    io.emit("number of users", numUsers);
+    socket.sockets.emit("number of users", numUsers);
 
     client.on("new message", function(message) {
-      io.emit("new message", message);
+      socket.sockets.emit("new message", message);
     });
 
     client.on("disconnect", function() {
       numUsers--;
-      io.emit("number of users", numUsers);
+      socket.sockets.emit("number of users", numUsers);
     });
 
   });
