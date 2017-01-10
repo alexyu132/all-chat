@@ -8,11 +8,10 @@ function init() {
   });
 
   socket.on("new message", function(message){
-    document.getElementById("messages").innerHTML = document.getElementById("messages").innerHTML + "<p>" + message + "</p>";
-    //messages.push(message);
+    var messageDiv = document.getElementById("messages");
+    messageDiv.innerHTML = document.getElementById("messages").innerHTML + "<p>" + message + "</p>";
+    messageDiv.scrollTop = messageDiv.scrollHeight;
   });
-
-
 }
 
 function send() {
