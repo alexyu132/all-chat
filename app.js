@@ -24,7 +24,7 @@ function setListeners() {
     socket.sockets.emit("number of users", numUsers);
 
     client.on("new message", function(message) {
-      socket.sockets.emit("new message", message);
+      socket.sockets.emit("new message", message.replace(/&/g,"&amp;").replace(/</g, "&lt;").replace(/>/g,"&gt;"));
     });
 
     client.on("disconnect", function() {
